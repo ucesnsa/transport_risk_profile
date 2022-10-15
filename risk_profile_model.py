@@ -26,6 +26,7 @@ class JourneyTimeMatrix:
     station_out: int = field(init=False)
     time_in: datetime = field(init=False)
     time_out: datetime = field(init=False)
+    tube_line_name: str = field(init=False)
     time_in_on_platform: datetime = field(init=False)
     time_in_on_train: datetime = field(init=False)
     time_out_train: datetime = field(init=False)
@@ -40,6 +41,7 @@ class JourneyTimeMatrix:
         self.station_out = int(self.raw.so)
         self.time_in = self.raw.tii
         self.time_out = self.raw.tio
+        self.tube_line_name = ''
         self.time_in_on_platform = ''
         self.time_in_on_train = ''
         self.time_out_train = ''
