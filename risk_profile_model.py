@@ -22,8 +22,8 @@ class JourneyTimeMatrix:
     id_oyster: str = field(init=False)
     id_day: int = field(init=False)
     id_tube_line: int = field(init=False)
-    station_in: str = field(init=False)
-    station_out: str = field(init=False)
+    station_in: int = field(init=False)
+    station_out: int = field(init=False)
     time_in: datetime = field(init=False)
     time_out: datetime = field(init=False)
     time_in_on_platform: datetime = field(init=False)
@@ -36,8 +36,8 @@ class JourneyTimeMatrix:
         self.id_oyster = self.raw.idoyster
         self.id_day = self.raw.idday
         self.id_tube_line = self.raw.idline
-        self.station_in = self.raw.si
-        self.station_out = self.raw.so
+        self.station_in = int(self.raw.si)
+        self.station_out = int(self.raw.so)
         self.time_in = self.raw.tii
         self.time_out = self.raw.tio
         self.time_in_on_platform = ''
