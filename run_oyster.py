@@ -1,7 +1,7 @@
-from typing import Tuple, Iterator
+from typing import Iterator
 import csv
-from risk_profile_model import JourneyTimeMatrix, RawRow
-from transport_data_util import get_train_line
+from lib.risk_profile_model import JourneyTimeMatrix, RawRow
+from lib.transport_data_util import get_train_line
 
 
 

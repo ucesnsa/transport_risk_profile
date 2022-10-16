@@ -1,4 +1,4 @@
-from reference_data_loader import RefDataLoader
+from lib.reference_data_loader import RefDataLoader
 
 # Load all reference data
 # load the line data i.e. station code, station name, line name
