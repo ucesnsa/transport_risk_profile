@@ -1,5 +1,5 @@
 import pandas as pd
-
+from operator import itemgetter
 
 class Singleton(type):
     _instances = {}
@@ -42,3 +42,28 @@ class RefDataLoader(object):
     def get_station_name(self, station_id):
         matches = [x for x in self.station_line_lst if x.station_id == station_id]
         return matches[0].station_name
+
+    # time2plat - load the time to the platform data i.e. Station Number	station name 	LineNumber	To to platform mins
+    # return mins from tap in to platform
+    def get_time_2_plat(self, station_id, line_name) -> int:
+        matches = [x for x in self.platform_time_lst if x.station_id == station_id and x.line_name == line_name ]
+        rv = int(matches[0].time_taken)
+        return rv
+
+    # time2train - Time2train will tell you the difference between next train and time2platform
+    # use the train timetable(ref data), station, line and current time to get the next train time
+    def get_time_2_train(self,  station_id, line_name, current_time):
+        matches = [x for x in self.train_time_table_lst if x.station_id == station_id
+                   and x.line_name == line_name and x.arrival_time >= current_time]
+
+        rv = int(min(matches, key=lambda k: k.arrival_time).arrival_time)
+        return rv
+
+
+    # getTime2out - Select travel time between data.StationIn and data.StationOut
+    def get_Time_2_out(self, station_in_id, station_out_id):
+        matches = [x for x in self.journey_time_lst if x.start_station_id == station_in_id
+                   and x.end_station_id == station_out_id]
+
+        rv = int(matches[0].time_taken)
+        return rv

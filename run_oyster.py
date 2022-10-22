@@ -1,14 +1,7 @@
 from typing import Iterator
 import csv
 from lib.risk_profile_model import JourneyTimeMatrix, RawRow
-from lib.transport_data_util import get_train_line
-
-
-
-def calculate_time_matrix(mt: JourneyTimeMatrix) -> JourneyTimeMatrix:
-    j = mt
-    j.tube_line_name = get_train_line(j.station_in, j.station_out)
-    return j
+from lib.transport_data_processor import calculate_time_matrix
 
 
 def journey_iter(reader: csv.DictReader) -> Iterator[JourneyTimeMatrix]:

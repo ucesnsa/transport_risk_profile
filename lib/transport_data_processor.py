@@ -1,4 +1,5 @@
 from lib.reference_data_loader import RefDataLoader
+from lib.risk_profile_model import JourneyTimeMatrix
 
 # Load all reference data
 # load the line data i.e. station code, station name, line name
@@ -29,18 +30,24 @@ def get_train_line(station_in, station_out) -> str:
     return rd.get_line_name(station_out)[0].line_name
 
 
-# time2plat - load the time to the platform data i.e. Station Number	station name 	LineNumber	To to platform mins
-# return mins from tap in to platform
-def time2plat(station, line_name) -> int:
-    pass
+def calculate_time_matrix(mt: JourneyTimeMatrix) -> JourneyTimeMatrix:
+    j = mt
+
+    j.tube_line_name = get_train_line(j.station_in, j.station_out)
+
+    # test data
+    j.time_in_on_platform = int(j.time_in) + rd.get_time_2_plat(670, 'Bakerloo')
+    j.time_in_on_train = rd.get_time_2_train(597, 'Bakerloo', 1016)
+    j.time_out_train = int(j.time_in_on_train) + rd.get_Time_2_out(597, 620)
+    j.time_out_platform = int(j.time_out) - rd.get_time_2_plat(670, 'Bakerloo')
 
 
-# time2train - Time2train will tell you the difference between next train and time2platform
-# use the train timetable(ref data), station, line and current time to get the next train time
-def time2train(station, line_name, current_time):
-    pass
+#    j.time_in_on_platform = j.time_in + rd.get_time_2_plat(j.station_in, j.tube_line_name)
 
+#    j.time_in_on_train = rd.get_time_2_train(j.station_in, j.tube_line_name,j.time_in_on_platform)
 
-# getTime2out - Select travel time between data.StationIn and data.StationOut
-def getTime2out(station_in, station_out):
-    pass
+#    j.time_out_train = rd.get_Time_2_out(j.station_in, j.station_out)
+
+#    j.time_out_platform = j.time_out - rd.get_time_2_plat(j.station_out, j.tube_line_name)
+
+    return j
