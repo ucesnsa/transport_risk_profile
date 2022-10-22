@@ -36,18 +36,27 @@ def calculate_time_matrix(mt: JourneyTimeMatrix) -> JourneyTimeMatrix:
     j.tube_line_name = get_train_line(j.station_in, j.station_out)
 
     # test data
-    j.time_in_on_platform = int(j.time_in) + rd.get_time_2_plat(670, 'Bakerloo')
-    j.time_in_on_train = rd.get_time_2_train(597, 'Bakerloo', 1016)
-    j.time_out_train = int(j.time_in_on_train) + rd.get_Time_2_out(597, 620)
-    j.time_out_platform = int(j.time_out) - rd.get_time_2_plat(670, 'Bakerloo')
+    # time_2_plat = rd.get_time_2_plat(670, 'Bakerloo')
+    # j.time_in_on_platform = int(j.time_in) + time_2_plat if time_2_plat != -1 else -1
+    #
+    # j.time_in_on_train = rd.get_time_2_train(597, 'Bakerloo', 1016)
+    #
+    # time_2_out = rd.get_time_2_out(597, 620)
+    # j.time_out_train = int(j.time_in_on_train) + time_2_out if time_2_out != -1 else -1
+    #
+    # time_2_plat2 = rd.get_time_2_plat(670, 'Bakerloo')
+    # j.time_out_platform = int(j.time_out) - time_2_plat2 if time_2_plat2 != -1 else -1
 
 
-#    j.time_in_on_platform = j.time_in + rd.get_time_2_plat(j.station_in, j.tube_line_name)
+    time_2_plat = rd.get_time_2_plat(j.station_in, j.tube_line_name)
+    j.time_in_on_platform = int(j.time_in) + time_2_plat if time_2_plat != -1 else -1
 
-#    j.time_in_on_train = rd.get_time_2_train(j.station_in, j.tube_line_name,j.time_in_on_platform)
+    j.time_in_on_train = rd.get_time_2_train(j.station_in, j.tube_line_name,j.time_in_on_platform)
 
-#    j.time_out_train = rd.get_Time_2_out(j.station_in, j.station_out)
+    time_2_out = rd.get_time_2_out(j.station_in, j.station_out)
+    j.time_out_train = int(j.time_in_on_train) + time_2_out if time_2_out != -1 else -1
 
-#    j.time_out_platform = j.time_out - rd.get_time_2_plat(j.station_out, j.tube_line_name)
+    time_2_plat2 = rd.get_time_2_plat(j.station_out, j.tube_line_name)
+    j.time_out_platform = int(j.time_out) - time_2_plat2 if time_2_plat2 != -1 else -1
 
     return j
