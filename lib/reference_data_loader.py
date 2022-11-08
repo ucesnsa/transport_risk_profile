@@ -1,4 +1,5 @@
 import pandas as pd
+from datetime import datetime
 from operator import itemgetter
 
 
@@ -46,7 +47,7 @@ class RefDataLoader(object):
 
     # time2plat - load the time to the platform data i.e. Station Number	station name 	LineNumber	To to platform mins
     # return mins from tap in to platform
-    def get_time_2_plat(self, station_id, line_name) -> int:
+    def get_time_2_plat(self, station_id, line_name):
         matches = [x for x in self.platform_time_lst if x.station_id == station_id and x.line_name == line_name]
 
         rv = -1
@@ -61,13 +62,16 @@ class RefDataLoader(object):
 
     # time2train - Time2train will tell you the difference between next train and time2platform
     # use the train timetable(ref data), station, line and current time to get the next train time
-    def get_time_2_train(self, station_id, line_name, current_time) -> int:
+    def get_time_2_train(self, station_id, line_name, current_time) :
+
+
         matches = [x for x in self.train_time_table_lst if x.station_id == station_id
-                   and x.line_name == line_name and x.arrival_time >= current_time]
+                   and x.line_name == line_name and datetime.strptime(str(x.arrival_time).zfill(4),'%H%M') >= current_time]
 
         rv = -1
         try:
-            rv = int(min(matches, key=lambda k: k.arrival_time).arrival_time)
+            rv = min(matches, key=lambda k: k.arrival_time).arrival_time
+            rv = datetime.strptime(str(rv).zfill(4), '%H%M')
         except ValueError as e:
             print('Error', e)
         except IndexError as e:

@@ -30,6 +30,8 @@ def run_all():
             # calculate time matrix
             journey = calculate_time_matrix(journey)
 
+            # write in file the risk_profile object with the additional information calculated using the
+            # calculate_time_matrix function
             wrt.writerow(journey.as_dict())
 
 

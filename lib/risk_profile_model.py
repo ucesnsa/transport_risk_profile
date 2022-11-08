@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-import datetime
+from datetime import datetime
 from dataclasses import field
 
 
@@ -44,8 +44,9 @@ class JourneyTimeMatrix:
         self.id_tube_line = self.raw.idline
         self.station_in = int(self.raw.si)
         self.station_out = int(self.raw.so)
-        self.time_in = self.raw.tii
-        self.time_out = self.raw.tio
+        self.time_in = datetime.strptime('{:02d}:{:02d}'.format(*divmod(int(self.raw.tii), 60)),'%H:%M')
+        self.time_out = datetime.strptime('{:02d}:{:02d}'.format(*divmod(int(self.raw.tio), 60)),'%H:%M')
+
         self.tube_line_name = ''
         self.time_in_on_platform = ''
         self.time_in_on_train = ''

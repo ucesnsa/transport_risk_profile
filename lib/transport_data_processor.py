@@ -1,5 +1,6 @@
 from lib.reference_data_loader import RefDataLoader
 from lib.risk_profile_model import JourneyTimeMatrix
+from datetime import datetime, timedelta
 
 # Load all reference data
 # load the line data i.e. station code, station name, line name
@@ -47,16 +48,26 @@ def calculate_time_matrix(mt: JourneyTimeMatrix) -> JourneyTimeMatrix:
     # time_2_plat2 = rd.get_time_2_plat(670, 'Bakerloo')
     # j.time_out_platform = int(j.time_out) - time_2_plat2 if time_2_plat2 != -1 else -1
 
-
     time_2_plat = rd.get_time_2_plat(j.station_in, j.tube_line_name)
-    j.time_in_on_platform = int(j.time_in) + time_2_plat if time_2_plat != -1 else -1
 
-    j.time_in_on_train = rd.get_time_2_train(j.station_in, j.tube_line_name,j.time_in_on_platform)
+    j.time_in_on_platform = j.time_in + timedelta(minutes=time_2_plat) if time_2_plat != -1 else -1
+
+    # if j.time_in_on_platform can not be found use the station time in will be used instead
+    j.time_in_on_train = rd.get_time_2_train(j.station_in, j.tube_line_name, j.time_in_on_platform) \
+        if j.time_in_on_platform != -1 else rd.get_time_2_train(j.station_in, j.tube_line_name, j.time_in)
 
     time_2_out = rd.get_time_2_out(j.station_in, j.station_out)
-    j.time_out_train = int(j.time_in_on_train) + time_2_out if time_2_out != -1 else -1
+    j.time_out_train = j.time_in_on_train + timedelta(minutes=time_2_out) if time_2_out != -1 else -1
 
     time_2_plat2 = rd.get_time_2_plat(j.station_out, j.tube_line_name)
-    j.time_out_platform = int(j.time_out) - time_2_plat2 if time_2_plat2 != -1 else -1
+    j.time_out_platform = j.time_out - timedelta(minutes=time_2_plat2) if time_2_plat2 != -1 else -1
+
+    # strip the date and only use time for the file output.
+    j.time_in = j.time_in.time()
+    j.time_out = j.time_out.time()
+    j.time_in_on_platform = j.time_in_on_platform.time() if j.time_in_on_platform != -1 else -1
+    j.time_out_train = j.time_out_train.time() if j.time_out_train != -1 else -1
+    j.time_in_on_train = j.time_in_on_train.time() if j.time_in_on_train != -1 else -1
+    j.time_out_platform = j.time_out_platform.time() if j.time_out_platform != -1 else -1
 
     return j
