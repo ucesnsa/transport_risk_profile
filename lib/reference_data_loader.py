@@ -30,11 +30,13 @@ class RefDataLoader(object):
         df_platform_time = xl.parse("time_to_plat")
         df_journey_time = xl.parse("journey_time")
         df_train_time_table = xl.parse("train_time_table")
+        df_journey_time_ex = xl.parse("journey_time_ex")
 
         cls.station_line_lst = list(df_train.itertuples(index=False, name='station_line'))
         cls.platform_time_lst = list(df_platform_time.itertuples(index=False, name='platform_time'))
         cls.journey_time_lst = list(df_journey_time.itertuples(index=False, name='journey_time'))
         cls.train_time_table_lst = list(df_train_time_table.itertuples(index=False, name='train_time_table'))
+        cls.journey_time_ex_lst = list(df_journey_time_ex.itertuples(index=False, name='journey_time_ex'))
         return super().__new__(cls)
 
     def get_line_name(self, station_id) -> list:
@@ -82,6 +84,16 @@ class RefDataLoader(object):
     def get_time_2_out(self, station_in_id, station_out_id) -> int:
         matches = [x for x in self.journey_time_lst if x.start_station_id == station_in_id
                    and x.end_station_id == station_out_id]
+
+        if len(matches) == 0:
+            matches = [x for x in self.journey_time_lst if x.end_station_id == station_in_id
+                       and x.start_station_id == station_out_id]
+        if len(matches) == 0:
+            matches = [x for x in self.journey_time_ex_lst if x.start_station_id == station_in_id
+                       and x.end_station_id == station_out_id]
+        if len(matches) == 0:
+            matches = [x for x in self.journey_time_ex_lst if x.end_station_id == station_in_id
+                       and x.start_station_id == station_out_id]
 
         rv = -1
         try:

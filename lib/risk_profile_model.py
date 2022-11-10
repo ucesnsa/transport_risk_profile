@@ -36,6 +36,8 @@ class JourneyTimeMatrix:
     # there can be two possibilities of c) and d) to not match/close enough
     # 1. the passenger couldn't get on the next train, too busy
     # 2. the train took longer in the transit
+    ###Possible idea: how much train distruction happened can be GISRUK paper, if you are interested. Or if you have another idea,
+    ###we can incooperate this from this paper.
 
     def __post_init__(self):
         self.id = self.raw.id
