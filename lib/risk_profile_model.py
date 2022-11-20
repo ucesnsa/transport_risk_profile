@@ -58,12 +58,12 @@ class JourneyTimeMatrix:
             self.time_in = datetime.strptime('00:00','%H:%M')
             self.time_out = datetime.strptime('00:00','%H:%M')
 
-        self.tube_line_name = ''
-        self.time_in_on_platform = ''
-        self.time_in_on_train = ''
-        self.time_out_train = ''
-        self.time_out_platform_forward = ''
-        self.time_out_platform_backward = ''
+        self.tube_line_name = 'NA'
+        self.time_in_on_platform = '-1'
+        self.time_in_on_train = '-1'
+        self.time_out_train = '-1'
+        self.time_out_platform_forward = '-1'
+        self.time_out_platform_backward = '-1'
 
     def as_dict(self):
        return {

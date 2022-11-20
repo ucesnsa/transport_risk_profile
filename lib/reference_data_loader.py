@@ -65,8 +65,6 @@ class RefDataLoader(object):
     # time2train - Time2train will tell you the difference between next train and time2platform
     # use the train timetable(ref data), station, line and current time to get the next train time
     def get_time_2_train(self, station_id, line_name, current_time) :
-
-
         matches = [x for x in self.train_time_table_lst if x.station_id == station_id
                    and x.line_name == line_name and datetime.strptime(str(x.arrival_time).zfill(4),'%H%M') >= current_time]
 
