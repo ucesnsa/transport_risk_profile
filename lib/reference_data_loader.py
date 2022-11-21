@@ -21,6 +21,8 @@ class RefDataLoader(object):
     platform_time_lst = None
     journey_time_lst = None
     train_time_table_lst = None
+    station_time_table_dict = None
+    train_time_table_lst = None
 
     def __new__(cls, *args, **kwargs):
         print("Initialise reference data loader")
@@ -29,14 +31,23 @@ class RefDataLoader(object):
         df_train = xl.parse("train_location_line_geo")
         df_platform_time = xl.parse("time_to_plat")
         df_journey_time = xl.parse("journey_time")
-        df_train_time_table = xl.parse("train_time_table")
         df_journey_time_ex = xl.parse("journey_time_ex")
+        df_train_time_table = xl.parse("train_time_table")
 
         cls.station_line_lst = list(df_train.itertuples(index=False, name='station_line'))
         cls.platform_time_lst = list(df_platform_time.itertuples(index=False, name='platform_time'))
         cls.journey_time_lst = list(df_journey_time.itertuples(index=False, name='journey_time'))
-        cls.train_time_table_lst = list(df_train_time_table.itertuples(index=False, name='train_time_table'))
         cls.journey_time_ex_lst = list(df_journey_time_ex.itertuples(index=False, name='journey_time_ex'))
+
+        # train time table
+        unique_station_ids = df_train_time_table.station_id.unique()
+        cls.station_time_table_dict = {elem: list() for elem in unique_station_ids}
+
+        for key in cls.station_time_table_dict.keys():
+            cls.station_time_table_dict[key] = \
+                list(df_train_time_table[:][df_train_time_table.station_id == key].itertuples(index=False))
+
+        #        cls.train_time_table_lst = list(df_train_time_table.itertuples(index=False, name='train_time_table'))
         return super().__new__(cls)
 
     def get_line_name(self, station_id) -> list:
@@ -64,9 +75,10 @@ class RefDataLoader(object):
 
     # time2train - Time2train will tell you the difference between next train and time2platform
     # use the train timetable(ref data), station, line and current time to get the next train time
-    def get_time_2_train(self, station_id, line_name, current_time) :
+    def get_time_2_train(self, station_id, line_name, current_time):
         matches = [x for x in self.train_time_table_lst if x.station_id == station_id
-                   and x.line_name == line_name and datetime.strptime(str(x.arrival_time).zfill(4),'%H%M') >= current_time]
+                   and x.line_name == line_name and datetime.strptime(str(x.arrival_time).zfill(4),
+                                                                      '%H%M') >= current_time]
 
         rv = -1
         try:
@@ -76,6 +88,25 @@ class RefDataLoader(object):
             print('Error', e)
         except IndexError as e:
             print('Error', e)
+        return rv
+
+    def get_time_2_train_v2(self, station_id, line_name, current_time):
+        rv = -1
+        try:
+            station_lst = self.station_time_table_dict[station_id]
+            matches = [x for x in station_lst if x.station_id == station_id
+                       and x.line_name == line_name and datetime.strptime(str(x.arrival_time).zfill(4),
+                                                                          '%H%M') >= current_time]
+
+
+            rv = min(matches, key=lambda k: k.arrival_time).arrival_time
+            rv = datetime.strptime(str(rv).zfill(4), '%H%M')
+        except ValueError as e:
+            print('Error', e)
+        except IndexError as e:
+            print('Error', e)
+        except:
+            print('Any error')
         return rv
 
     # getTime2out - Select travel time between data.StationIn and data.StationOut

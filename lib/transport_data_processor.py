@@ -35,14 +35,6 @@ def calculate_time_matrix(mt: JourneyTimeMatrix) -> JourneyTimeMatrix:
     if j.tube_line_name == 'NA':
         return j
 
-##    if mt.station_in==796 and mt.station_out==747 and j.tube_line_name == 'Waterloo & City':
-##        print ('here')
-##    else:
-##        return mt
-
-
-
-
     # time_2_plat is the time take to get in to platform from station entry
     time_2_plat = rd.get_time_2_plat(j.station_in, j.tube_line_name)
 
@@ -50,8 +42,8 @@ def calculate_time_matrix(mt: JourneyTimeMatrix) -> JourneyTimeMatrix:
         if time_2_plat != -1 and j.time_in!= -1 else -1
 
     # if j.time_in_on_platform can not be found use the station time in will be used instead
-    j.time_in_on_train = rd.get_time_2_train(j.station_in, j.tube_line_name, j.time_in_on_platform) \
-        if j.time_in_on_platform != -1 else rd.get_time_2_train(j.station_in, j.tube_line_name, j.time_in)
+    j.time_in_on_train = rd.get_time_2_train_v2(j.station_in, j.tube_line_name, j.time_in_on_platform) \
+        if j.time_in_on_platform != -1 else rd.get_time_2_train_v2(j.station_in, j.tube_line_name, j.time_in)
 
     time_2_out = rd.get_time_2_out(j.station_in, j.station_out)
     j.time_out_train = j.time_in_on_train + timedelta(minutes=time_2_out) \

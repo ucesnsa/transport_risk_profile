@@ -31,8 +31,8 @@ class JourneyTimeMatrix:
     time_in_on_platform: datetime = field(init=False)   # a) this is the time_in + time_to_platform
     time_in_on_train: datetime = field(init=False)      # b) this is from the train time table, a), next train
     time_out_train: datetime = field(init=False)        # c) this b + journey time
-    time_out_platform_forward: datetime = field(init=False)     # d calculate forward by adding time_out_train + platform
-    time_out_platform_backward: datetime = field(init=False)    # e calculate backwards by subtracting time_time - platform
+    time_out_platform_forward: datetime = field(init=False)     # d calculate forward by adding time_out_train + time_to_platform
+    time_out_platform_backward: datetime = field(init=False)    # e calculate backwards by subtracting time_out - time_to_platform
     #d and e should in theory be same/similar but e is more reliable indicator, and difference between the two
     # suggest more time has been spent on the platform_in or during the journey
 

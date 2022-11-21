@@ -7,7 +7,7 @@ import datetime
 
 
 def journey_iter(reader: csv.DictReader) -> Iterator[JourneyTimeMatrix]:
-    read_max_count = 200_000
+    read_max_count = 19_000_000
     for index, row in enumerate(reader):
         raw = RawRow(**row)  # same **kwargs i.e.  variable-length argument dictionary
         if index >= read_max_count:
