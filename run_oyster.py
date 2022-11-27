@@ -1,7 +1,8 @@
 from typing import Iterator
 import csv
 from lib.risk_profile_model import JourneyTimeMatrix, RawRow
-from lib.transport_data_processor import calculate_time_matrix, get_train_line
+from lib.transport_data_processor import calculate_time_matrix, get_train_line,get_time_2_out
+
 import pandas as pd
 import datetime
 
@@ -29,14 +30,17 @@ def run_all():
         for i, journey in enumerate( journey_iter(reader) ):
             # write header for output
             wrt = csv.DictWriter(f_out, journey.as_dict().keys())
-            # calculate time matrix
-            journey = calculate_time_matrix(journey)
-            # write in file the risk_profile object with the additional information calculated using the
-            # calculate_time_matrix function
 
-            wrt.writerow(journey.as_dict())
-        b = datetime.datetime.now()
-        print('b-a', b - a)
+            if journey.raw.idline == '12':
+                # calculate time matrix
+                journey = calculate_time_matrix(journey)
+                # write in file the risk_profile object with the additional information calculated using the
+                # calculate_time_matrix function
+                wrt.writerow(journey.as_dict())
+                b = datetime.datetime.now()
+                print('b-a', b - a)
 if __name__ == '__main__':
     #get_train_line(796, 511)
+    #print (get_time_2_out(578,643))
     run_all()
+

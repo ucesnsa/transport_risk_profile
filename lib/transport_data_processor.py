@@ -7,6 +7,8 @@ import datetime
 # load the line data i.e. station code, station name, line name
 rd = RefDataLoader()
 
+def get_time_2_out(station_in, station_out):
+    return rd.get_time_2_out(station_in, station_out)
 
 # select the first common train line between the two stations
 def get_train_line(station_in, station_out) -> str:
@@ -34,6 +36,7 @@ def calculate_time_matrix(mt: JourneyTimeMatrix) -> JourneyTimeMatrix:
     j.tube_line_name = get_train_line(j.station_in, j.station_out)
     if j.tube_line_name == 'NA':
         return j
+
 
     # time_2_plat is the time take to get in to platform from station entry
     time_2_plat = rd.get_time_2_plat(j.station_in, j.tube_line_name)

@@ -35,8 +35,6 @@ class JourneyTimeMatrix:
     time_out_platform_backward: datetime = field(init=False)    # e calculate backwards by subtracting time_out - time_to_platform
     #d and e should in theory be same/similar but e is more reliable indicator, and difference between the two
     # suggest more time has been spent on the platform_in or during the journey
-
-
     # there can be two possibilities of c) and d) to not match/close enough
     # 1. the passenger couldn't get on the next train, too busy
     # 2. the train took longer in the transit
