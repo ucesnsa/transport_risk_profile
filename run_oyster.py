@@ -8,7 +8,7 @@ import datetime
 
 
 def journey_iter(reader: csv.DictReader) -> Iterator[JourneyTimeMatrix]:
-    read_max_count = 19_000_000
+    read_max_count = 200_000
     for index, row in enumerate(reader):
         raw = RawRow(**row)  # same **kwargs i.e.  variable-length argument dictionary
         if index >= read_max_count:
@@ -31,14 +31,14 @@ def run_all():
             # write header for output
             wrt = csv.DictWriter(f_out, journey.as_dict().keys())
 
-            if journey.raw.idline == '12':
+            if 1 == 1: #journey.raw.idday == '4':
                 # calculate time matrix
                 journey = calculate_time_matrix(journey)
                 # write in file the risk_profile object with the additional information calculated using the
                 # calculate_time_matrix function
                 wrt.writerow(journey.as_dict())
-                b = datetime.datetime.now()
-                print('b-a', b - a)
+                #b = datetime.datetime.now()
+                #print('b-a', b - a)
 if __name__ == '__main__':
     #get_train_line(796, 511)
     #print (get_time_2_out(578,643))

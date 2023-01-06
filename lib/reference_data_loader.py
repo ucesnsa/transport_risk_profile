@@ -32,7 +32,7 @@ class RefDataLoader(object):
         df_platform_time = xl.parse("time_to_plat")
         df_journey_time = xl.parse("journey_time")
         df_journey_time_ex = xl.parse("journey_time_ex")
-        df_train_time_table = xl.parse("train_time_table")
+        df_train_time_table = xl.parse("tfl_time_table")
 
         cls.station_line_lst = list(df_train.itertuples(index=False, name='station_line'))
         cls.platform_time_lst = list(df_platform_time.itertuples(index=False, name='platform_time'))
@@ -47,7 +47,7 @@ class RefDataLoader(object):
             cls.station_time_table_dict[key] = \
                 list(df_train_time_table[:][df_train_time_table.station_id == key].itertuples(index=False))
 
-        #        cls.train_time_table_lst = list(df_train_time_table.itertuples(index=False, name='train_time_table'))
+        #        cls.train_time_table_lst = list(df_train_time_table.itertuples(index=False, name='tfl_time_table'))
         return super().__new__(cls)
 
     def get_line_name(self, station_id) -> list:
@@ -92,22 +92,25 @@ class RefDataLoader(object):
 
     def get_time_2_train_v2(self, station_id, line_name, current_time):
         rv = -1
+        rvt = -1
         try:
             station_lst = self.station_time_table_dict[station_id]
-            matches = [x for x in station_lst if x.station_id == station_id
-                       and x.line_name == line_name and datetime.strptime(str(x.arrival_time).zfill(4),
-                                                                          '%H%M') >= current_time]
+            station_arrival_time_lst = [x.arrival_time for x in station_lst]
+            #matches = [x.arrival_time for x in station_lst if datetime.strptime(str(x.arrival_time).zfill(4),
+            #                                                              '%H%M') >= current_time]
 
+            #rv = min(matches, key=lambda k: k.arrival_time).arrival_time
 
-            rv = min(matches, key=lambda k: k.arrival_time).arrival_time
-            rv = datetime.strptime(str(rv).zfill(4), '%H%M')
+            c_time = str(current_time.hour).zfill(2) + str(current_time.minute).zfill(2)
+            rv = min(station_arrival_time_lst, key=lambda x: abs(x - int(c_time)))
+            rvt = datetime.strptime(str(rv).zfill(4), '%H%M')
         except ValueError as e:
             print('Error', e)
         except IndexError as e:
             print('Error', e)
         except:
             print('Any error')
-        return rv
+        return rvt
 
     # getTime2out - Select travel time between data.StationIn and data.StationOut
     def get_time_2_out(self, station_in_id, station_out_id) -> int:
@@ -126,7 +129,17 @@ class RefDataLoader(object):
 
         rv = -1
         try:
-            rv = int(matches[0].time_taken)
+            if len(matches) > 1:
+                print('more than one time found selecting the smallest')
+                rv_min = matches[0].time_taken
+                for a in matches:
+                    if a.time_taken < rv_min:
+                        rv = a.time_taken
+                        rv_min = a.time_taken
+                    else:
+                        rv = rv_min
+            else:
+                rv = int(matches[0].time_taken)
         except ValueError as e:
             print('Error', e)
         except IndexError as e:
