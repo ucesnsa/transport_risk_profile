@@ -1,0 +1,290 @@
+nlc,(Trip Start)Site,tfl_station_nm,station_nm,train_time_table_station_name
+500,ACT,Acton Town,Acton Town,Acton Town
+501,BAR,Barbican,Barbican,Barbican
+502,ALC,Aldgate,Aldgate,Aldgate (to/from Tower Hill)
+502,ALD,Aldgate,Aldgate,Aldgate (to/from Liverpool Street)
+503,ALE,Aldgate East,Aldgate East,Aldgate East
+504,STP,Stratford International,Stratford International,St. Paul's
+505,ALP,Alperton,Alperton,Alperton
+506,AME,Amersham,Amersham,Amersham
+507,ANG,Angel,Angel,Angel
+508,ARC,Archway,Archway,Archway
+509,AGR,Arnos Grove,Arnos Grove,Arnos Grove
+510,ARL,Arsenal,Arsenal,Arsenal
+511,BST,Baker Street,Baker Street,Baker Street
+512,BAL,Balham LU,Balham,Balham
+513,BNK,Bank,Bank,Bank
+514,BKG,Barking,Barking,Barking 
+515,BDE,Barkingside,Barkingside,Barkingside
+516,BCT,Barons Court,Barons Court,Barons Court
+517,BAY,Bayswater,Bayswater,Bayswater
+518,BEC,Becontree,Becontree,Becontree
+519,BPK,Belsize Park,Belsize Park,Belsize Park
+520,BNG,Bethnal Green LU,Bethnal Green,Bethnal Green
+521,BLF,Blackfriars LU,Blackfriars,Blackfriars
+522,BHR,Blackhorse Road,Blackhorse Road,Blackhorse Road
+524,BDS,Bond Street,Bond Street,Bond Street
+525,BOR,Borough,Borough,Borough
+526,BOS,Boston Manor,Boston Manor,Boston Manor
+527,BGR,Bounds Green,Bounds Green,Bounds Green
+528,BWR,Bow Road,Bow Road,Bow Road
+529,BTX,Brent Cross,Brent Cross,Brent Cross
+530,BBB,Bromley-by-Bow,Bromley-by-Bow,Bromley by Bow
+531,BHL,Buckhurst Hill,Buckhurst Hill,Buckhurst Hill
+532,BUR,Burnt Oak,Burnt Oak,Burnt Oak
+534,CRD,Caledonian Road,Caledonian Road,Caledonian Road
+535,CTN,Camden Town,Camden Town,Camden Town
+536,CST,Cannon Street  LU,Cannon Street,Cannon Street
+537,CPK,Canons Park,Canons Park,Canons Park
+539,CLF,Chalfont & Latimer,Chalfont & Latimer,Chalfont & Latimer
+540,CHF,Chalk Farm,Chalk Farm,Chalk Farm
+541,CYL,Chancery Lane,Chancery Lane,Chancery Lane
+542,EMB,Embankment,Embankment,Embankment
+543,CHM,Chesham,Chesham,Chesham
+544,CHG,Chigwell,Chigwell,Chigwell
+545,CHP,Chiswick Park,Chiswick Park,Chiswick Park
+546,CWD,Chorleywood,Chorleywood,Chorleywood
+547,CPC,Clapham Common,Clapham Common,Clapham Common
+548,CPN,Clapham North,Clapham North,Clapham North
+549,CPS,Clapham South,Clapham South,Clapham South
+551,COL,Colindale,Colindale,Colindale
+552,CLW,Colliers Wood,Colliers Wood,Colliers Wood
+553,COV,Covent Garden,Covent Garden,Covent Garden
+554,CRX,Croxley,Croxley,Croxley
+555,DGE,Dagenham East,Dagenham East,Dagenham East
+556,DGH,Dagenham Heathway,Dagenham Heathway,Dagenham Heathway
+557,DEB,Debden,Debden,Debden
+558,DHL,Dollis Hill,Dollis Hill,Dollis Hill
+560,EBY,Ealing Broadway,Ealing Broadway,Ealing Broadway
+561,ECM,Ealing Common,Ealing Common,Ealing Common
+562,ECT,Earls Court,Earls Court,Earl's Court
+563,EAC,East Acton,East Acton,East Acton
+564,ETE,Eastcote,Eastcote,Eastcote
+565,EFY,East Finchley,East Finchley,East Finchley
+566,EHM,East Ham,East Ham,East Ham
+567,EPY,East Putney,East Putney,East Putney
+568,EDG,Edgware,Edgware,Edgware
+569,ERD,Edgware Road C&H,Edgware Road,Edgware Road (C & H / Dist)
+570,ELE,Elephant & Castle,Elephant & Castle,Elephant & Castle
+571,EPK,Elm Park,Elm Park,Elm Park
+572,EPP,Epping,Epping,Epping
+574,EUS,Euston LU,Euston,Euston (incl. NR)
+575,ESQ,Euston Square,Euston Square,Euston Square
+576,FLP,Fairlop,Fairlop,Fairlop
+577,FAR,Farringdon,Farringdon,Farringdon
+578,FYC,Finchley Central,Finchley Central,Finchley Central
+579,FRD,Finchley Road,Finchley Road,Finchley Road
+580,FPK,Finsbury Park LU,Finsbury Park,Finsbury Park
+581,FBY,Fulham Broadway,Fulham Broadway,Fulham Broadway
+582,GHL,Gants Hill,Gants Hill,Gants Hill
+583,GRD,Gloucester Road,Gloucester Road,Gloucester Road
+584,GGR,Golders Green,Golders Green,Golders Green (& Depot)
+585,GHR,Goldhawk Road,Goldhawk Road,Goldhawk Road
+586,GST,Goodge Street,Goodge Street,Goodge Street
+587,GRH,Grange Hill,Grange Hill,Grange Hill
+588,GPS,Great Portland Street,Great Portland Street,Great Portland Street
+589,GFD,Greenford,Greenford,Greenford
+590,GPK,Green Park,Green Park,Green Park
+591,GUN,Gunnersbury,Gunnersbury,Gunnersbury
+592,HAI,Hainault,Hainault,Hainault
+593,HMD,Hammersmith D&P,Hammersmith,Hammersmith (Dist & Picc)
+594,HMP,Hampstead,Hampstead,Hampstead
+595,HLN,Hanger Lane,Hanger Lane,Hanger Lane
+596,HSD,Harlesden,Harlesden,Harlesden
+597,HAW,Harrow & Wealdstone,Harrow & Wealdstone,Harrow & Wealdstone
+598,HOH,Harrow-on-the-Hill,Harrow-on-the-Hill,Harrow-on-the-Hill
+599,WDL,Wood Lane,Wood Lane,Wood Lane
+600,KXX,Kings Cross LU (North),King's Cross St. Pancras,King's Cross
+601,HND,Hendon Central,Hendon Central,Hendon Central
+602,HBT,High Barnet,High Barnet,High Barnet
+603,HBY,Highbury & Islington,Highbury & Islington,Highbury & Islington
+604,HIG,Highgate,Highgate,Highgate
+605,HST,High Street Kensington,High Street Kensington,High Street Kensington
+606,HDN,Hillingdon,Hillingdon,Hillingdon
+607,HOL,Holborn,Holborn,Holborn
+608,HPK,Holland Park,Holland Park,Holland Park
+609,HRD,Holloway Road,Holloway Road,Holloway Road
+610,HCH,Hornchurch,Hornchurch,Hornchurch
+611,HNC,Hounslow Central,Hounslow Central,Hounslow Central
+612,HNE,Hounslow East,Hounslow East,Hounslow East
+613,HNW,Hounslow West,Hounslow West,Hounslow West
+614,HPC,Hyde Park Corner,Hyde Park Corner,Hyde Park Corner
+615,ICK,Ickenham,Ickenham,Ickenham
+616,KEN,Kennington,Kennington,Kennington
+617,KGN,Kensal Green,Kensal Green,Kensal Green
+619,KTN,Kentish Town,Kentish Town,Kentish Town
+620,KNT,Kenton,Kenton,Kenton
+621,KEW,Kew Gardens,Kew Gardens,Kew Gardens
+622,KIL,Kilburn,Kilburn,Kilburn
+623,KPK,Kilburn Park,Kilburn Park,Kilburn Park
+624,KBY,Kingsbury,Kingsbury,Kingsbury
+625,KXX,Kings Cross LU (Tube),King's Cross St. Pancras,King's Cross
+626,KNB,Knightsbridge,Knightsbridge,Knightsbridge
+627,LGR,Ladbroke Grove,Ladbroke Grove,Ladbroke Grove
+628,LAM,Lambeth North,Lambeth North,Lambeth North
+629,LAN,Lancaster Gate,Lancaster Gate,Lancaster Gate
+630,LAT,Latimer Road,Latimer Road,Latimer Road
+631,LSQ,Leicester Square,Leicester Square,Leicester Square
+632,LEY,Leyton,Leyton,Leyton
+633,LYS,Leytonstone,Leytonstone,Leytonstone
+634,LST,Liverpool Street LU,Liverpool Street,Liverpool Street
+635,LON,London Bridge LU,London Bridge,London Bridge
+636,LTN,Loughton,Loughton,Loughton 
+637,MDV,Maida Vale,Maida Vale,Maida Vale
+638,MNR,Manor House,Manor House,Manor House
+639,MAN,Mansion House,Mansion House,Mansion House
+640,MAR,Marble Arch,Marble Arch,Marble Arch
+641,MYB,Marylebone LU,Marylebone,Marylebone (Bloo)
+642,MLE,Mile End,Mile End,Mile End
+643,MHE,Mill Hill East,Mill Hill East,Mill Hill East
+644,MON,Monument,Monument,Monument
+645,MGT,Moorgate,Moorgate,Moorgate
+646,MPK,Moor Park,Moor Park,Moor Park
+647,MOR,Morden,Morden,Morden
+648,MCR,Mornington Crescent,Mornington Crescent,Mornington Crescent
+649,NEA,Neasden,Neasden,Neasden
+650,NEP,Newbury Park,Newbury Park,Newbury Park
+653,NAC,North Acton,North Acton,North Acton
+654,NEL,North Ealing,North Ealing,North Ealing
+655,NFD,Northfields,Northfields,Northfields 
+656,NHR,North Harrow,North Harrow,North Harrow
+657,NHT,Northolt,Northolt,Northolt
+659,NWM,North Wembley,North Wembley,North Wembley
+660,NWP,Northwick Park,Northwick Park,Northwick Park
+661,NWD,Northwood,Northwood,Northwood
+662,NWH,Northwood Hills,Northwood Hills,Northwood Hills
+663,NHG,Notting Hill Gate,Notting Hill Gate,Notting Hill Gate
+664,OAK,Oakwood,Oakwood,Oakwood
+665,OLD,Old Street,Old Street,Old Street
+666,CWF,Canary Wharf LU (E2),Canary Wharf,Canary Wharf
+667,OST,Osterley,Osterley,Osterley
+668,OVL,Oval,Oval,Oval
+669,OXC,Oxford Circus,Oxford Circus,Oxford Circus
+670,PAD,Paddington LU,Paddington,Paddington
+671,PRY,Park Royal,Park Royal,Park Royal
+672,PGR,Parsons Green,Parsons Green,Parsons Green
+673,PER,Perivale,Perivale,Perivale
+674,PIC,Piccadilly Circus,Piccadilly Circus,Piccadilly Circus
+675,PIN,Pinner,Pinner,Pinner
+676,PLW,Plaistow,Plaistow,Plaistow
+677,PRD,Preston Road,Preston Road,Preston Road
+678,PUT,Putney Bridge,Putney Bridge,Putney Bridge
+679,QBY,Queensbury,Queensbury,Queensbury
+680,QPK,Queens Park,Queen's Park,Queen's Park
+681,QWY,Queensway,Queensway,Queensway
+682,RCP,Ravenscourt Park,Ravenscourt Park,Ravenscourt Park
+683,RLN,Rayners Lane,Rayners Lane,Rayners Lane
+684,RED,Redbridge,Redbridge,Redbridge
+685,RPK,Regents Park,Regents Park,Regents Park
+687,RKY,Rickmansworth,Rickmansworth,Rickmansworth 
+688,ROD,Roding Valley,Roding Valley,Roding Valley
+690,ROY,Royal Oak,Royal Oak,Royal Oak
+691,RUI,Ruislip,Ruislip,Ruislip
+692,RUG,Ruislip Gardens,Ruislip Gardens,Ruislip Gardens
+693,RUM,Ruislip Manor,Ruislip Manor,Ruislip Manor
+694,RSQ,Russell Square,Russell Square,Russell Square
+695,SJP,St James's Park,St. James's Park,St. James's Park
+696,SJW,St Johns Wood,St. John's Wood,St. John's Wood
+697,STP,St Pauls,St. Paul's,St. Paul's
+698,SVS,Seven Sisters,Seven Sisters,Seven Sisters
+700,SBC,Shepherds Bush LU,Shepherd's Bush,Shepherds Bush
+702,SSQ,Sloane Square,Sloane Square,Sloane Square
+703,SNB,Snaresbrook,Snaresbrook,Snaresbrook
+704,SEL,South Ealing,South Ealing,South Ealing
+705,SFS,Southfields,Southfields,Southfields
+706,SGT,Southgate,Southgate,Southgate
+707,SHR,South Harrow,South Harrow,South Harrow 
+708,SKN,South Kensington,South Kensington,South Kensington
+709,SKT,South Kenton,South Kenton,South Kenton
+710,SRP,South Ruislip,South Ruislip,South Ruislip
+711,SWM,South Wimbledon,South Wimbledon,South Wimbledon
+712,SWF,South Woodford,South Woodford,South Woodford
+713,STB,Stamford Brook,Stamford Brook,Stamford Brook
+714,STA,Stanmore,Stanmore,Stanmore 
+715,STG,Stepney Green,Stepney Green,Stepney Green
+716,STK,Stockwell,Stockwell,Stockwell
+717,SPK,Stonebridge Park,Stonebridge Park,Stonebridge Park 
+719,SFD,Stratford,Stratford,Stratford 
+720,SHL,Sudbury Hill,Sudbury Hill Harrow,Sudbury Hill
+721,STN,Sudbury Town,Sudbury Town,Sudbury Town
+723,SWC,Swiss Cottage,Swiss Cottage,Swiss Cottage
+724,TEM,Temple,Temple,Temple
+725,THB,Theydon Bois,Theydon Bois,Theydon Bois
+726,TBE,Tooting Bec,Tooting Bec,Tooting Bec
+727,TBY,Tooting Broadway,Tooting Broadway,Tooting Broadway
+728,TCR,Tottenham Court Road,Tottenham Court Road,Tottenham Court Road
+729,TTH,Tottenham Hale,Tottenham Hale,Tottenham Hale
+730,TOT,Totteridge,Totteridge,Totteridge & Whetstone
+731,THL,Tower Hill,Tower Hill,Tower Hill
+732,CHX,Charing Cross LU,Charing Cross,Charing Cross
+733,TPK,Tufnell Park,Tufnell Park,Tufnell Park
+734,TGR,Turnham Green,Turnham Green,Turnham Green
+735,TPL,Turnpike Lane,Turnpike Lane,Turnpike Lane
+737,UPB,Upminster Bridge,Upminster Bridge,Upminster Bridge
+738,UPY,Upney,Upney,Upney
+739,UPK,Upton Park,Upton Park,Upton Park
+740,UXB,Uxbridge,Uxbridge,Uxbridge 
+741,VIC,Victoria LU,Victoria,Victoria
+742,WAL,Walthamstow Central,Walthamstow Central,Walthamstow Central
+743,WAN,Wanstead,Wanstead,Wanstead
+745,WST,Warren Street,Warren Street,Warren Street
+746,WAR,Warwick Avenue,Warwick Avenue,Warwick Avenue
+747,WLO,Waterloo LU (Bloo/Nthn/W&C),Waterloo,Waterloo
+748,WAT,Watford Met,Watford,Watford
+751,WEM,Wembley Central,Wembley Central,Wembley Central
+752,WPK,Wembley Park,Wembley Park,Wembley Park
+753,WAC,West Acton,West Acton,West Acton
+754,WBP,Westbourne Park,Westbourne Park,Westbourne Park
+755,WBT,West Brompton,West Brompton,West Brompton
+756,WFY,West Finchley,West Finchley,West Finchley
+757,WHM,West Ham,West Ham,West Ham
+758,WHD,West Hampstead LU,West Hampstead,West Hampstead
+759,WHR,West Harrow,West Harrow,West Harrow
+760,WKN,West Kensington,West Kensington,West Kensington
+761,WMS,Westminster,Westminster,Westminster
+762,WRP,West Ruislip,West Ruislip,West Ruislip
+763,WCL,Whitechapel,Whitechapel,Whitechapel
+764,WCT,White City,White City,White City 
+765,WLG,Willesden Green,Willesden Green,Willesden Green
+768,WMP,Wimbledon Park,Wimbledon Park,Wimbledon Park 
+769,WFD,Woodford,Woodford,Woodford
+770,WGN,Wood Green,Wood Green,Wood Green
+771,WSP,Woodside Park,Woodside Park,Woodside Park
+772,KXX,Kings Cross LU (Western),King's Cross St. Pancras,King's Cross
+773,HMS,Hammersmith C&H,Hammersmith C&H,Hammersmith (Met)
+774,ERB,Edgware Road B,Edgware Road (Bakerloo),Edgware Road (Bloo)
+775,SBM,Shepherds Bush Market,Shepherd's Bush Market,Shepherds Bush Market
+776,PIM,Pimlico,Pimlico,Pimlico
+777,VUX,Vauxhall LU,Vauxhall,Vauxhall
+778,BRX,Brixton LU,Brixton,Brixton
+779,HTX,Hatton Cross,Hatton Cross,Hatton Cross
+780,HRC,Heathrow Terminals 123 LU,Heathrow Terminals 123,Heathrow Terminals 1 2 3
+781,HRF,Heathrow Terminal 4 LU,Heathrow Terminal 4,Heathrow Terminal 4
+783,HRV,Heathrow Terminal 5 LU,Heathrow Terminal 5,Heathrow Terminal 5
+784,SWK,Southwark,Southwark,Southwark
+787,BER,Bermondsey,Bermondsey,Bermondsey
+788,CWR,Canada Water,Canada Water,Canada Water
+789,NGW,North Greenwich,North Greenwich,North Greenwich
+796,WLO,Waterloo LU (Jubilee),Waterloo,Waterloo
+842,CWF,Canary Wharf DLR,Canary Wharf,Canary Wharf
+843,CNT,Canning Town DLR,Canning Town,Canning Town
+844,BNK,Bank DLR,Bank,Bank
+852,CWF,Canary Wharf LU (E1),Canary Wharf,Canary Wharf
+899,NEA,Neasden TC,Neasden,Neasden
+1444,EUS,Euston NR,Euston,Euston (incl. NR)
+1451,SHP,South Hampstead,South Hampstead,South Hampstead
+1452,SAC,South Acton,South Acton,South Acton
+1455,WTH,Watford High Street,Watford High Street,Watford High Street
+1457,WJN,Willesden Junction,Willesden Junction,Willesden Junction
+1475,MYL,Marylebone NR,Marylebone,Marylebone (NR)
+1402,WTJ,Watford Junction,Watford Junction,
+1395,BSY,Bushey,Bushey,
+1442,CPP,Carpenders Park,Carpenders Park,
+1398,HAT,Hatch End,Hatch End,
+1434,HSL,Headstone Lane,Headstone Lane,
+1415,KHR,Kilburn High Road,Kilburn High Road,
+7464,UPM,Upminster,Upminster,
+5578,WDN,Wimbledon,Wimbledon,
+5570,RMD,Richmond,Richmond,
+618,OLY,Kensington Olympia,Kensington Olympia,
+5569,RAY,Raynes Park,Raynes Park,
