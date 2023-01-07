@@ -1,7 +1,7 @@
 from typing import Iterator
 import csv
 from lib.risk_profile_model import JourneyTimeMatrix, RawRow
-from lib.transport_data_processor import calculate_time_matrix, get_train_line,get_time_2_out
+from lib.transport_data_processor import calculate_time_matrix, get_train_line
 
 import pandas as pd
 import datetime

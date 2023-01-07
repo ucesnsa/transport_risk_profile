@@ -2,6 +2,8 @@ import pandas as pd
 import pandas as pd
 import openpyxl
 
+INPUT_FILE_NAME = "London_tube_lines v2.xlsx"
+OUTPUT_FILE_NAME ="London_tube_lines_output.xlsx"
 
 def convert_to_preferred_format(sec):
    sec = sec % (24 * 3600)
@@ -25,7 +27,7 @@ def convert_to_preferred_format(sec):
 def calculate_line_times(line_name, df_all):
    # read excel worksheet
    process_line = line_name
-   xl = pd.ExcelFile("London_tube_lines v2.xlsx")
+   xl = pd.ExcelFile(INPUT_FILE_NAME)
    #print(xl.sheet_names)
    df_train = xl.parse(process_line)
    df_train = df_train[['station','start_station_id']]
@@ -54,7 +56,7 @@ def calculate_line_times(line_name, df_all):
 df_all = pd.DataFrame(columns=['line_name','start_station','start_station_name','end_station','end_station_name','time_cost'])
 
 ## read input xlsx file to get the train line data
-xl = pd.ExcelFile("London_tube_lines v2.xlsx")
+xl = pd.ExcelFile(INPUT_FILE_NAME)
 
 ## read each worksheet for each train line and calcualted
 for line_name in xl.sheet_names:
@@ -65,7 +67,7 @@ for line_name in xl.sheet_names:
 
 
 ##write to excel file to be used in the main code
-df_all.to_excel("London_tube_lines_output.xlsx", sheet_name='all_lines')
+df_all.to_excel(OUTPUT_FILE_NAME, sheet_name='all_lines')
 
 
 ## test stub
