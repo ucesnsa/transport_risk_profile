@@ -107,7 +107,7 @@ def get_time_2_out(refd, station_in_id, station_out_id) -> int:
 def get_time_2_out_v2(refd, station_in_id, station_out_id) -> int:
     rv = -1
     try:
-        rv = int(refd.journey_time_dict[station_in_id][station_out_id])
+        rv = int(refd.journey_time_dict[int(station_in_id)][int(station_out_id)])
     except ValueError as e:
         print('Error', e)
     except IndexError as e:

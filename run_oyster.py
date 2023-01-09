@@ -8,7 +8,7 @@ import datetime
 
 
 def journey_iter(reader: csv.DictReader) -> Iterator[JourneyTimeMatrix]:
-    read_max_count = 200_000
+    read_max_count = 20_000_000
     for index, row in enumerate(reader):
         raw = RawRow(**row)  # same **kwargs i.e.  variable-length argument dictionary
         if index >= read_max_count:
@@ -17,8 +17,8 @@ def journey_iter(reader: csv.DictReader) -> Iterator[JourneyTimeMatrix]:
 
 
 def run_all():
-    file_write = 'C:/Users/ucesnsa/Downloads/Roberto_RiskProfiles/oyster_time_matrix.csv'
-    file_read = 'C:/Users/ucesnsa/Downloads/Roberto_RiskProfiles/oyster.csv'
+    file_write = 'C:/Users/ucesnsa/PycharmProjects/big_data/transport_risk_profile/oyster_time_matrix.csv'
+    file_read = 'C:/Users/ucesnsa/PycharmProjects/big_data/transport_risk_profile/oyster.csv'
 
 
     with open(file_read, "r") as f_in, open(file_write, "w", newline='') as f_out:
@@ -31,7 +31,8 @@ def run_all():
             # write header for output
             wrt = csv.DictWriter(f_out, journey.as_dict().keys())
 
-            if 1 == 1: #journey.raw.idday == '4':
+            #if 1 == 1:
+            if journey.raw.idday == '4':
                 # calculate time matrix
                 journey = calculate_time_matrix(journey)
                 # write in file the risk_profile object with the additional information calculated using the
