@@ -4,6 +4,14 @@ from dataclasses import field
 
 
 @dataclass
+class JourneySegment:
+    id: str
+    start_station: str
+    end_station: str
+    segment_time: datetime
+
+
+@dataclass
 class RawRow:
     id: str
     idoyster: str
@@ -52,7 +60,7 @@ class JourneyTimeMatrix:
             self.time_in = datetime.strptime('{:02d}:{:02d}'.format(*divmod(int(self.raw.tii), 60)),'%H:%M')
             self.time_out = datetime.strptime('{:02d}:{:02d}'.format(*divmod(int(self.raw.tio), 60)),'%H:%M')
         except ValueError as e:
-            print ('time value great than 2400')
+            #print ('time value great than 2400')
             self.time_in = datetime.strptime('00:00','%H:%M')
             self.time_out = datetime.strptime('00:00','%H:%M')
 
