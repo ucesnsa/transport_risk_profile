@@ -13,8 +13,9 @@ def drop_db_table(db_name, tbl_name):
         engine.execute(sql)
         print('table dropped ', db_name + '.' + tbl_name)
     except exc.SQLAlchemyError:
-        exit('drop_db_table', "Encountered general SQLAlchemyError!")
-
+        print('drop_db_table', "Encountered general SQLAlchemyError!")
+    except  exc.DataError:
+        print('drop_db_table', "Encountered general SQLAlchemyError DataError!")
 
 def write_to_db_table(df, db_name, tbl_name):
     try:
@@ -23,4 +24,4 @@ def write_to_db_table(df, db_name, tbl_name):
         # print ('results table created ', db_name +'.'+tbl_name)
         # print ('count:', len(df))
     except exc.SQLAlchemyError:
-        exit('write_to_db_table', "Encountered general SQLAlchemyError!")
+        print('write_to_db_table', "Encountered general SQLAlchemyError!")

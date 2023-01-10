@@ -34,7 +34,8 @@ time_out::time without time zone as time_out,
 (case when time_out_platform_backward ='-1' then '00:00' else time_out_platform_backward end)::time without time zone time_out_platform_backward,
 case when tube_line_name = 'Overground' or station_in = station_out or tube_line_name = 'NA' or time_in = '00:00:00' or time_out = '00:00:00' then 1 else 0 end excl_flag
 from tbl_time_matrix where 
---id_tube_line='12' and tube_line_name='Victoria' and 
+--id_tube_line='12' and
+ tube_line_name='Victoria' and 
 id_day='4'
 and time_out_train != '-1'
 ),
@@ -74,7 +75,7 @@ count(*) as j_count from journey_segments s inner join select_jrys as b on s.id 
 where excl_flag=0
 --and s.end_station='511'
 group by id_day, s.end_station, tube_line_name,s.segment_time
-order by s.segment_time
+--order by s.segment_time
 
 
 
@@ -82,11 +83,11 @@ order by s.segment_time
 
 
 
-
--- test query to select all the data 
+--*****************************************************
+-- this is a test query to analyze individual journeys
 with select_jrys as 
 ( select 
-id,id_oyster,id_day, id_tube_line,station_in,station_out, time_in::time without time zone as time_in, 
+id,id_oyster,id_day, id_tube_line,tube_line_name,station_in,station_out, time_in::time without time zone as time_in, 
 time_out::time without time zone as time_out,
 (case when time_in_on_platform ='-1' then '00:00:00' else time_in_on_platform end)::time without time zone time_in_on_platform,
 (case when time_in_on_train ='-1' then '00:00:00' else time_in_on_train end)::time without time zone time_in_on_train,
@@ -95,9 +96,18 @@ time_out::time without time zone as time_out,
 (case when time_out_platform_backward ='-1' then '00:00:00' else time_out_platform_backward end)::time without time zone time_out_platform_backward,
 case when tube_line_name = 'Overground' or station_in = station_out or tube_line_name = 'NA' or time_in = '00:00:00' or time_out = '00:00:00' then 1 else 0 end excl_flag
 from tbl_time_matrix 
-where id_tube_line='12' and tube_line_name='Victoria' and id_day='4' and time_out_train != '-1'
+where --id_tube_line='12' and tube_line_name='Victoria' and id_day='4' and 
+time_out_train != '-1'
 )
-select * from select_jrys 
+
+select id_day, tube_line_name, 
+ (CASE WHEN (time_out-time_out_platform_forward < INTERVAL '0') THEN (-(time_out-time_out_platform_forward)) ELSE time_out-time_out_platform_forward END) AS abs_diff,
+count(*)
+from select_jrys 
+group by id_day, tube_line_name, (CASE WHEN (time_out-time_out_platform_forward < INTERVAL '0') THEN (-(time_out-time_out_platform_forward)) ELSE time_out-time_out_platform_forward END)
+
+--*****************************************************
+
 
 -- 86,173 total (time_out_platform_forward > time_out)
 -- 187,355 total , Wed Victoria line 

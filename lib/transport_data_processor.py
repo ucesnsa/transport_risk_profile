@@ -59,6 +59,8 @@ def get_journey_times(mt: JourneyTimeMatrix):
         end_index = index2 if index1 < index2 else index1
         #print(key1, key2, start_index,end_index)
 
+
+
         for idx in range(start_index, end_index):
             station_in = station_df.iloc[idx]['start_station']
             station_out = station_df.iloc[idx+1]['start_station']
